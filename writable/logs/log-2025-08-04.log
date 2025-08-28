@@ -1,0 +1,85 @@
+ERROR - 2025-08-04 17:49:42 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'artesanas', 3306, '', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Database/BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/BaseModel.php(679): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/artesanas/app/Controllers/Perfil.php(30): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/CodeIgniter.php(933): App\Controllers\Perfil->index()
+#8 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Perfil))
+#9 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /Applications/XAMPP/xamppfiles/htdocs/artesanas/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/rewrite.php(44): require_once('/Applications/X...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Database/MySQLi/Connection.php:246
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Database/BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#4 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/BaseModel.php(679): CodeIgniter\Model->doFindAll(0, 0)
+#5 /Applications/XAMPP/xamppfiles/htdocs/artesanas/app/Controllers/Perfil.php(30): CodeIgniter\BaseModel->findAll()
+#6 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/CodeIgniter.php(933): App\Controllers\Perfil->index()
+#7 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Perfil))
+#8 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /Applications/XAMPP/xamppfiles/htdocs/artesanas/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /Applications/XAMPP/xamppfiles/htdocs/artesanas/system/rewrite.php(44): require_once('/Applications/X...')
+#13 {main}
+CRITICAL - 2025-08-04 17:49:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 467.
+ 1 SYSTEMPATH/Database/BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `perfiles`
+WHERE `perfiles`.`deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(679): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Controllers/Perfil.php(30): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Perfil->index()
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Perfil))
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/artesanas/public/index.php')
+CRITICAL - 2025-08-04 17:50:39 --> ErrorException: Undefined property: App\Controllers\CursosController::$model
+[Method: GET, Route: cursos/]
+in APPPATH/Controllers/CursosController.php on line 25.
+ 1 APPPATH/Controllers/CursosController.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\CursosController::$model', '/Applications/XAMPP/xamppfiles/htdocs/artesanas/app/Controllers/CursosController.php', 25)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CursosController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/artesanas/public/index.php')
+CRITICAL - 2025-08-04 18:31:01 --> ErrorException: Undefined variable $cursos
+[Method: GET, Route: cursos/vista]
+in APPPATH/Views/cursos/index.php on line 87.
+ 1 APPPATH/Views/cursos/index.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cursos', '/Applications/XAMPP/xamppfiles/htdocs/artesanas/app/Views/cursos/index.php', 87)
+ 2 SYSTEMPATH/View/View.php(224): include('/Applications/XAMPP/xamppfiles/htdocs/artesanas/app/Views/cursos/index.php')
+ 3 SYSTEMPATH/View/View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 4 SYSTEMPATH/Common.php(1173): CodeIgniter\View\View->render('cursos/index', [], true)
+ 5 APPPATH/Controllers/CursosController.php(19): view('cursos/index')
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CursosController->vista()
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/artesanas/public/index.php')
+DEBUG - 2025-08-04 21:55:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-08-04 21:55:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-08-04 21:55:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-08-04 21:56:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-08-04 21:56:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-08-04 21:56:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-08-04 21:56:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
