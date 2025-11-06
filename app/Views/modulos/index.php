@@ -23,9 +23,10 @@
         <td>{{ modulo.titulo }}</td>
         <td>{{ modulo.descripcion }}</td>
         <td>
-            <a :href="'/contenido/index/' + modulo.id" class="btn btn-sm btn-info">Ver Contenidos</a>
-          <button class="btn btn-sm btn-primary" @click="editarModulo(modulo.id)">Editar</button>
-          <a :href="'/modulo/delete/' + modulo.id" class="btn btn-sm btn-danger">Eliminar</a>
+            <a :href="'/contenido/index/' + modulo.id" class="btn btn-sm btn-info me-2">Ver Contenidos</a>
+          <button class="btn btn-sm btn-primary me-2" @click="editarModulo(modulo.id)">Editar</button>
+          <a :href="'/modulo/delete/' + modulo.id" class="btn btn-sm btn-danger me-2">Eliminar</a>
+          <a :href="'/preguntas/index/' + modulo.id" class="btn btn-sm btn-success">Agregar preguntas</a>
         </td>
       </tr>
     </tbody>

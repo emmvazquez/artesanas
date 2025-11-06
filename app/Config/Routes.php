@@ -24,6 +24,9 @@ $routes->get('/curso/edit/(:num)', 'Curso::edit/$1');
 $routes->post('/curso/update/(:num)', 'Curso::update/$1');
 $routes->post('/curso/create', 'Curso::create');
 $routes->get('/curso/delete/(:num)', 'Curso::delete/$1');
+$routes->group('', ['filter' => 'auth'], static function($routes) {
+    $routes->get('dashboard/curso/(:num)', 'Dashboard::curso/$1', ['as' => 'dashboard_curso']);
+});
 
 
 //modulos
@@ -33,6 +36,12 @@ $routes->post('/modulo/update/(:num)', 'Modulo::update/$1');
 $routes->post('/modulo/create', 'Modulo::create');
 $routes->get('/modulo/delete/(:num)', 'Modulo::delete/$1');
 
+//preguntas
+$routes->get('/preguntas/index/(:num)', 'Preguntas::index/$1');
+$routes->get('/preguntas/edit/(:num)', 'Preguntas::edit/$1');
+$routes->post('/preguntas/update/(:num)', 'Preguntas::update/$1');
+$routes->post('/preguntas/create', 'Preguntas::create');
+$routes->get('/preguntas/delete/(:num)', 'Preguntas::delete/$1');
 
 //contenidos
 $routes->get('/contenido/index/(:num)', 'Contenido::index/$1');
@@ -52,6 +61,9 @@ $routes->get('/auth/login', 'Auth::login');
 $routes->post('/auth/acceder', 'Auth::acceder');
 $routes->get('/auth/logout', 'Auth::logout');
 $routes->get('/dashboard', 'Dashboard::index'); // protegido
+
+//registro
+$routes->get('/aunt/registrer', 'Registrer::');
 
 //page
 
