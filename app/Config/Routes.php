@@ -71,3 +71,22 @@ $routes->get('curso/(:num)', 'Page::curso/$1');
 $routes->get('curso/inscribirse/(:num)', 'Curso::inscribirse/$1');
 
 
+//vista curso
+$routes->get('curso/(:num)', 'Curso::ver/$1');
+
+// Ruta para servir archivos desde la carpeta de uploads
+$routes->get('uploads/(:any)', function($filePath) {
+    $path = FCPATH . 'uploads/' . $filePath;
+    if (is_file($path)) {
+        $mime = mime_content_type($path);
+        header('Content-Type: ' . $mime);
+        readfile($path);
+        exit;
+    } else {
+        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+    }
+});
+
+//progreso
+$routes->post('progreso/registrar', 'Progreso::registrar');
+

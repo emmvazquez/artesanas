@@ -27,12 +27,22 @@ class Contenido extends Controller
     $model = new ContenidoModel();
     $data = $this->request->getPost();
 
+    // $file = $this->request->getFile('archivoSubido');
+    // if ($file && $file->isValid() && !$file->hasMoved()) {
+    //     $nombre = $file->getRandomName();
+    //     $file->move('uploads/contenido/', $nombre);
+    //     $data['urlArchivo'] = base_url("uploads/contenido/" . $nombre);
+    // }
+
+
     $file = $this->request->getFile('archivoSubido');
-    if ($file && $file->isValid() && !$file->hasMoved()) {
-        $nombre = $file->getRandomName();
-        $file->move('uploads/contenido/', $nombre);
-        $data['urlArchivo'] = base_url("uploads/contenido/" . $nombre);
-    }
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            $nombre = $file->getRandomName();
+            // Guardar dentro de la carpeta pública
+            $file->move(FCPATH . 'uploads/contenido/', $nombre);
+            // Guardar ruta relativa (no la URL completa)
+            $data['urlArchivo'] = 'uploads/contenido/' . $nombre;
+        }
 
     $model->insert($data);
     return redirect()->to('/contenido/index/' . $data['idModulo']);
@@ -43,12 +53,21 @@ public function update($id)
     $model = new ContenidoModel();
     $data = $this->request->getPost();
 
+    // $file = $this->request->getFile('archivoSubido');
+    // if ($file && $file->isValid() && !$file->hasMoved()) {
+    //     $nombre = $file->getRandomName();
+    //     $file->move('uploads/contenido/', $nombre);
+    //     $data['urlArchivo'] = base_url("uploads/contenido/" . $nombre);
+    // }
+
     $file = $this->request->getFile('archivoSubido');
-    if ($file && $file->isValid() && !$file->hasMoved()) {
-        $nombre = $file->getRandomName();
-        $file->move('uploads/contenido/', $nombre);
-        $data['urlArchivo'] = base_url("uploads/contenido/" . $nombre);
-    }
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            $nombre = $file->getRandomName();
+            // Guardar dentro de la carpeta pública
+            $file->move(FCPATH . 'uploads/contenido/', $nombre);
+            // Guardar ruta relativa (no la URL completa)
+            $data['urlArchivo'] = 'uploads/contenido/' . $nombre;
+        }
 
     $model->update($id, $data);
     return redirect()->to('/contenido/index/' . $data['idModulo']);
